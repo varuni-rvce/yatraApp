@@ -23,11 +23,13 @@ jobs:
         push: true
         tags: varunihk/yatra-app:latest
 
-    - name: Deploy to Kubernetes
+    - name: Set up Kubernetes CLI
       uses: azure/setup-kubectl@v1
       with:
         version: 'latest'
       env:
         KUBECONFIG: ${{ secrets.KUBECONFIG }}
+      
+    - name: Deploy to Kubernetes
       run: |
         kubectl apply -f kubernetes/kubernetes-deployment.yaml
