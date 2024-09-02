@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="feedback">
+    <h2><i class="fas fa-comment-dots"></i> Feedback</h2>
+    <p>We value your feedback! Please share your thoughts with us.</p>
+    <form action="{{ url_for('feedback') }}" method="post">
+        <textarea name="feedback" rows="5" placeholder="Enter your feedback here..." required></textarea>
+        <button type="submit"><i class="fas fa-paper-plane"></i> Submit</button>
+    </form>
+</section>
+{% endblock %}

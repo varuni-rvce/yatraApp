@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="chatbot">
+    <h2><i class="fas fa-robot"></i> AI Assistant Chatbot</h2>
+    <p>Ask our AI assistant any questions you have about your yatra.</p>
+    <div id="chatbot-messages" class="chatbox">
+        <!-- Chat messages will appear here -->
+    </div>
+    <form id="chatbot-form">
+        <input type="text" id="chatbot-input" placeholder="Type your message here...">
+        <button type="submit"><i class="fas fa-paper-plane"></i> Send</button>
+    </form>
+</section>
+
+<!-- Contact Details -->
+<section class="contact-details">
+    <h3><i class="fas fa-phone-alt"></i> Contact Us</h3>
+    <p><i class="fas fa-envelope"></i> Email: support@yatra-planning.com</p>
+    <p><i class="fas fa-phone"></i> Phone: +1 234 567 890</p>
+    <p><i class="fas fa-map-marker-alt"></i> Address: 123 Yatra St, Travel City, YT 45678</p>
+</section>
+{% endblock %}
