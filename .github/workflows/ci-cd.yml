@@ -1,3 +1,14 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch: {}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -27,7 +38,7 @@ jobs:
       with:
         version: 'latest'
 
-    - name: Create .kube directory  # Corrected step
+    - name: Create .kube directory
       run: mkdir -p $HOME/.kube
 
     - name: Decode KUBECONFIG
