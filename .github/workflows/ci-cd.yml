@@ -1,13 +1,9 @@
-name: Build and Deploy
+name: CI/CD Pipeline
 
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
-  workflow_dispatch: {}
 
 jobs:
   build:
@@ -38,13 +34,10 @@ jobs:
       with:
         version: 'latest'
 
-    - name: Create .kube directory
-      run: mkdir -p $HOME/.kube
-
     - name: Decode KUBECONFIG
-      run: echo "${{ secrets.KUBECONFIG }}" | base64 -d > $HOME/.kube/config
-      env:
-        KUBECONFIG: ${{ secrets.KUBECONFIG }}
+      run: |
+        mkdir -p $HOME/.kube
+        echo "${{ secrets.KUBECONFIG }}" | base64 -d > $HOME/.kube/config
 
     - name: Validate Kubernetes configuration
       run: |
